@@ -15,7 +15,7 @@ colcon build
 ```
 other directories will be created. Go into the `src` directory and create a package:
 ```bash
-ros2 pkg create --build-type ament_python --dependencies rclpy my_first_package
+ros2 pkg create my_first_package --build-type ament_python --dependencies rclpy
 ```
 Now you will se a new directory inside `src` called `my_first_package`. Inside it you will find some configuration files and another 
 directory called `my_first_package` which contains the code of your package, here you will create the scripts for your nodes.
@@ -86,7 +86,7 @@ class MySecondNode(Node):
 def main(args=None):
     rclpy.init(args=args)
     node = MySecondNode()
-    rclpy.spin(node)
+    rclpy.spin(node)    # will keep the node running until stopped
     rclpy.shutdown()
 ```
 Then go to `setup.py` and add the entry point for your node:
